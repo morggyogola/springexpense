@@ -28,4 +28,8 @@ public class ExpenseController {
     public  Expense saveExpenseDetails(@RequestBody Expense expense){
         return expenseService.saveExpenseDetails(expense);
     }
+    @PutMapping("/expenses/{id}")
+    public Expense updateExistingExpense(@RequestBody Expense expense,@PathVariable Long id){
+        return expenseService.updateExpenseDetails(expense,id);
+    }
 }
