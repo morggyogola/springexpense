@@ -3,6 +3,7 @@ package com.example.ExpenseTracker.controller;
 import com.example.ExpenseTracker.entity.Expense;
 import com.example.ExpenseTracker.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class ExpenseController {
         expenseService.deleteExpenseById(id);
     }
 
+    @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping("/expenses")
     public  Expense saveExpenseDetails(@RequestBody Expense expense){
         return expenseService.saveExpenseDetails(expense);
