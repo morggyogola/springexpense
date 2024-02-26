@@ -1,13 +1,15 @@
 package com.example.ExpenseTracker.service;
 
 import com.example.ExpenseTracker.entity.Expense;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 public interface ExpenseService {
-    List<Expense> getAllExpenses();
+    Page<Expense> getAllExpenses(Pageable page);
     Expense getExpenseById(Long id);
 
     void deleteExpenseById(Long id);

@@ -3,6 +3,8 @@ package com.example.ExpenseTracker.controller;
 import com.example.ExpenseTracker.entity.Expense;
 import com.example.ExpenseTracker.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,13 +15,14 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
     @GetMapping("/expenses")
-    public List<Expense> getAllExpenses(){
-        return expenseService.getAllExpenses() ;
+    public Page<Expense> getAllExpenses(Pageable page){
+        return expenseService.getAllExpenses(page) ;
     }
     @GetMapping("/expenses/{id}")
     public Expense getExpenseById(@PathVariable Long id){
         return expenseService.getExpenseById(id);
     }
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping("/expenses")
     public void deleteExpenseById(@RequestParam("id")Long id){
         expenseService.deleteExpenseById(id);
