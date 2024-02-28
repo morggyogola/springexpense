@@ -15,8 +15,8 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
     @GetMapping("/expenses")
-    public Page<Expense> getAllExpenses(Pageable page){
-        return expenseService.getAllExpenses(page) ;
+    public List<Expense> getAllExpenses(Pageable page){
+        return expenseService.getAllExpenses(page).toList() ;
     }
     @GetMapping("/expenses/{id}")
     public Expense getExpenseById(@PathVariable Long id){
