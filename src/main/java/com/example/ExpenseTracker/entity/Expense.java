@@ -1,6 +1,7 @@
 package com.example.ExpenseTracker.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,6 +19,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     @Column(name = "expense_name")
+    @NotNull
     private String name;
     @Column(name = "expense_description")
     private String description;
