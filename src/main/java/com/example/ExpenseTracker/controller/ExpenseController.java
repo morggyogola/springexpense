@@ -38,4 +38,8 @@ public class ExpenseController {
     public Expense updateExistingExpense(@RequestBody Expense expense,@PathVariable Long id){
         return expenseService.updateExpenseDetails(expense,id);
     }
+    @GetMapping("/expenses/category")
+    public  List<Expense> getExpensesByCategory(@RequestParam String category,Pageable page){
+        return expenseService.readByCategory(category,page);
+    }
 }
