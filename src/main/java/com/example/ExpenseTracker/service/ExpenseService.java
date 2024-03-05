@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -19,4 +20,8 @@ public interface ExpenseService {
     Expense updateExpenseDetails(Expense expense,Long id);
 
     List<Expense> readByCategory(String category, Pageable page);
+
+    List<Expense> readByName(String keyword, Pageable page);
+
+    List <Expense> readByDate(Date startdate, Date endDate, Pageable page);
 }

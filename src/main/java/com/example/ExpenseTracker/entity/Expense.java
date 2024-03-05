@@ -37,7 +37,7 @@ public class Expense {
     @NotBlank(message = "Category cannot be blank")
     private String category;
 
-    @Column(name = "expense_date")
+    @Column(name = "date")
     private Date date;
 
     @Column(name = "created_at",nullable = false,updatable = false)
