@@ -1,5 +1,6 @@
 package com.example.ExpenseTracker.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,6 +19,7 @@ public class User {
     @Column(unique = true)
     private String email;
 
+   @JsonIgnore
    private String password;
 
     private Long  age;
